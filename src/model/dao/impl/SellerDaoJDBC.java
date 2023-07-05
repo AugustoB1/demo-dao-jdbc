@@ -28,9 +28,9 @@ public class SellerDaoJDBC implements SellerDao {
 	public void insert(Seller obj) {
 		PreparedStatement st = null;
 		try {
-			st = conn.prepareStatement("INSERT INTO seller\r\n"
-					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId)\r\n"
-					+ "VALUES\r\n"
+			st = conn.prepareStatement("INSERT INTO seller "
+					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
+					+ "VALUES "
 					+ "(?, ?, ?, ?, ?)", 
 					Statement.RETURN_GENERATED_KEYS);
 			
@@ -101,7 +101,7 @@ public class SellerDaoJDBC implements SellerDao {
 			int rowsAffected = st.executeUpdate();
 			
 			if(rowsAffected < 1) {
-				throw new DbException("O Id informado não existe!");
+				throw new DbException("O Id informado nao existe!");
 			}
 		}
 		catch (SQLException e) {
